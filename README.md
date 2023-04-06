@@ -25,7 +25,7 @@ for i in $(cat list);do echo $i; done\
 \
 **###random mac address**\
 ///file NAME: mac.sh\
-`
+```
 #!/bin/bash
 LC_CTYPE=C
 MAC=00-60-2F
@@ -35,4 +35,4 @@ do
     MAC+=$(printf -- '-%02x\n' "'$char")
 done
 printf '%s\n' "$MAC"
-`
+```
