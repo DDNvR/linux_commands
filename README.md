@@ -53,5 +53,5 @@ printf '%s\n' "$MAC"
 # chmod +x mac.sh
 # $ ./mac.sh 
 # ba:aa:92:cf:38:2e
-# use mac/oui address lookup file with this
+# use mac/oui address lookup file in git
 ```
