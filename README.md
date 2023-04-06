@@ -27,7 +27,9 @@ ifconfig eth0 up \
 Inspect inbound and outbound traffic\
 You can verify that the interface is using the intended MAC address by generating some inbound and outbound network traffic then inspecting the resulting Ethernet headers. The traffic can be inspected using tcpdump:\
 \
+**###check if eth0 mac address has changed**\
 tcpdump -i eth0 -e -n "icmp and host 192.168.0.2"
+\
 \
 **###mac to monitor mode**\
 ifconfig eth0 down \
