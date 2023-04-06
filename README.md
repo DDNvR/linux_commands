@@ -28,17 +28,18 @@ for i in $(cat list);do echo $i; done\
 ```
 #!/bin/bash
 LC_CTYPE=C
-MAC=00-60-2F
-for i in {1..3}
+MAC=ba
+for i in {1..5}
 do
     IFS= read -d '' -r -n 1 char < /dev/urandom
-    MAC+=$(printf -- '-%02x\n' "'$char")
+    MAC+=$(printf -- ':%02x\n' "'$char")
 done
 printf '%s\n' "$MAC"
 
-#chmod +x mac.sh
-#$ ./mac.sh 
-#00-60-2F-d9-ee-65
-#ba:aa:92:cf:38:2e
-#08:00:27:0b:3e:41
+# ----------------------------------------
+# chmod +x mac.sh
+# $ ./mac.sh 
+# ba:aa:92:cf:38:2e
+# ba:08:27:0b:3e:41
+# ba:e0:8e:5c:86:63
 ```
