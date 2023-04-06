@@ -20,4 +20,19 @@ ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount driv
 echo $((4 + 2))\
 \
 **###for loop file**\
-for i in $(cat list);do echo $i; done
+for i in $(cat list);do echo $i; done\
+\
+\
+**###random mac address**\
+///file NAME: mac.sh\
+`
+#!/bin/bash
+LC_CTYPE=C
+MAC=00-60-2F
+for i in {1..3}
+do
+    IFS= read -d '' -r -n 1 char < /dev/urandom
+    MAC+=$(printf -- '-%02x\n' "'$char")
+done
+printf '%s\n' "$MAC"
+`
