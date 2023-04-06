@@ -19,6 +19,16 @@ ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount driv
 **###calculator**\
 echo $((4 + 2))\
 \
+**###change mac address**\
+ifconfig eth0 down \
+ifconfig eth0 hw ether 02:5d:6c:e8:8d:b2 \
+ifconfig eth0 up \
+\
+**###mac to monitor mode**\
+ifconfig eth0 down \
+ifconfig eth0 mode monitor \
+ifconfig eth0 up \
+\
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
 \
