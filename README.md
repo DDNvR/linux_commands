@@ -40,6 +40,5 @@ printf '%s\n' "$MAC"
 # chmod +x mac.sh
 # $ ./mac.sh 
 # ba:aa:92:cf:38:2e
-# ba:08:27:0b:3e:41
-# ba:e0:8e:5c:86:63
+# use mac/oui address lookup file with this
 ```
