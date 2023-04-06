@@ -19,6 +19,10 @@ ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount driv
 **###calculator**\
 echo $((4 + 2))\
 \
+**###samba connect**\
+smbclient -N -L \\\\YOUR_TARGET_IP\\DIRECTORY_NAME\
+smbclient //192.168.0.50/sharedFolderName/ -m SMB3\
+\
 **###change mac address**\
 ifconfig eth0 down \
 ifconfig eth0 hw ether 02:5d:6c:e8:8d:b2 \
