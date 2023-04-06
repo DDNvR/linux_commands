@@ -28,8 +28,8 @@ for i in $(cat list);do echo $i; done\
 ```
 #!/bin/bash
 LC_CTYPE=C
-MAC=ba
-for i in {1..5}
+MAC=00:14:7C #3COM CARD
+for i in {1..3}
 do
     IFS= read -d '' -r -n 1 char < /dev/urandom
     MAC+=$(printf -- ':%02x\n' "'$char")
