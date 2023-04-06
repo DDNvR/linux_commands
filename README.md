@@ -36,6 +36,9 @@ do
 done
 printf '%s\n' "$MAC"
 
+#chmod +x mac.sh
 #$ ./mac.sh 
 #00-60-2F-d9-ee-65
+#ba:aa:92:cf:38:2e
+#08:00:27:0b:3e:41
 ```
