@@ -37,24 +37,19 @@ ifconfig eth0 down \
 ifconfig eth0 mode monitor \
 ifconfig eth0 up \
 \
-\
 **###generate ssl certificate 2048 bit strong - no CA**\
 openssl genrsa -out epp.key 2048\
 openssl req -new -x509 -key epp.key -out epp.crt -days 365\
 cat epp.key epp.crt > epp.pem\
 \
-\
 **###show contents of ssl certificate**\
-openssl s_client x509 -in name.crt -text -no
-\
+openssl s_client x509 -in name.crt -text -noout\
 \
 **###connect to server**\
-openssl s_client -connect server.com -cert name.crt -key name.key -verify 10 -debug
-\
+openssl s_client -connect server.com -cert name.crt -key name.key -verify 10 -debug\
 \
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
-\
 \
 **###random mac address**\
 ///file NAME: mac.sh
