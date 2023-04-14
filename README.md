@@ -31,7 +31,6 @@ ifconfig eth0 up \
 **###check if eth0 mac address has changed**\
 tcpdump -i eth0 -e -n "icmp and host 192.168.0.2"\
 \
-\
 **###mac to monitor mode**\
 ifconfig eth0 down \
 ifconfig eth0 mode monitor \
@@ -47,6 +46,9 @@ openssl s_client x509 -in name.crt -text -noout\
 \
 **###connect to server**\
 openssl s_client -connect server.com -cert name.crt -key name.key -verify 10 -debug\
+\
+**###check the connection**\
+tcpdump -n tcp and port 700\
 \
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
