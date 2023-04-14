@@ -1,4 +1,4 @@
-# Linux_Commands
+# Command Line Fu
 command to help out for when you in the terminal\
 --------------------------------------------------------\
 **###normal rsync**\
