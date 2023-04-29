@@ -20,8 +20,9 @@ ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount driv
 echo $((4 + 2))\
 \
 **###samba connect**\
+smbclient -L 10.0.0.50\
 smbclient -N -L \\\\YOUR_TARGET_IP\\DIRECTORY_NAME\
-smbclient //192.168.0.50/sharedFolderName/ -m SMB3\
+smbclient //10.0.0.50/sharedFolderName/ -m SMB3\
 \
 **###change mac address**\
 ifconfig eth0 down \
@@ -36,6 +37,13 @@ ifconfig eth0 down \
 ifconfig eth0 mode monitor \
 ifconfig eth0 up \
 \
+**###generate ssh keys**\
+ssh-keygen -t ed25519 -C "your_email@example.com"\
+\
+Note: If you are using a legacy system that doesn't support the Ed25519 algorithm, use:\
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"\
+\
+
 **###generate ssl certificate 2048 bit strong - no CA**\
 openssl genrsa -out epp.key 2048\
 openssl req -new -x509 -key epp.key -out epp.crt -days 365\
