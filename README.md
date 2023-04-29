@@ -40,10 +40,9 @@ ifconfig eth0 up \
 **###generate ssh keys**\
 ssh-keygen -t ed25519 -C "your_email@example.com"\
 \
-Note: If you are using a legacy system that doesn't support the Ed25519 algorithm, use:\
+<sup><sub>Note: If you are using a legacy system that doesn't support the Ed25519 algorithm, use:</sub></sup>\
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"\
 \
-
 **###generate ssl certificate 2048 bit strong - no CA**\
 openssl genrsa -out epp.key 2048\
 openssl req -new -x509 -key epp.key -out epp.crt -days 365\
