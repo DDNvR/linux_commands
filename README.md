@@ -55,7 +55,7 @@ openssl s_client x509 -in name.crt -text -noout\
 openssl s_client -connect server.com -cert name.crt -key name.key -verify 10 -debug\
 \
 **###connect to server check port**\
-telnet 123.456.789.012 3386
+telnet 123.456.789.012 3386\
 \
 **###check the connection**\
 tcpdump -n tcp and port 700\
