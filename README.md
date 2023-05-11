@@ -54,8 +54,17 @@ openssl s_client x509 -in name.crt -text -noout\
 **###connect to server**\
 openssl s_client -connect server.com -cert name.crt -key name.key -verify 10 -debug\
 \
+**###connect to server check port**\
+telnet 123.456.789.012 3386
+\
 **###check the connection**\
 tcpdump -n tcp and port 700\
+\
+**###check mysql and its logs**\
+mysql -se "SHOW VARIABLES" | grep -e log_error -e general_log -e slow_query_log\
+mysql -e "SELECT @@GLOBAL.log_error"\
+tail -f $(mysql -Nse "SELECT @@GLOBAL.log_error")\
+mysql -e "SHOW FULL PROCESSLIST;"\
 \
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
