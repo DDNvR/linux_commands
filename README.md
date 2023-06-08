@@ -66,6 +66,11 @@ mysql -e "SELECT @@GLOBAL.log_error"\
 tail -f $(mysql -Nse "SELECT @@GLOBAL.log_error")\
 mysql -e "SHOW FULL PROCESSLIST;"\
 \
+**###parallel - multithreading usage**\
+ls -lsah | parallel echo\
+seq 1 | parallel /usr/bin/php8.1 test.php\
+seq 10 | parallel /usr/bin/python3 --version\
+\
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
 \
