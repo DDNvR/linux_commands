@@ -123,3 +123,22 @@ We can use this tcpdump command to filter ICMPv6 echo-requests.
 In the latest versions of tcpdump/libpcap, we can use the following command to capture ICMPv6 echo packets.
 
 ### tcpdump -i eth0 ‘icmp6[icmp6type]=icmp6-echo’
+
+### WIFI HACKING
+Commands used in wifi WPA2 hacking\
+--------------------------------------------------------\
+you will need a wifi card that can do packet injection and monitor mode... \
+to test this use the following commands
+
+### ifconfig wlan0 down
+### iwconfig wlan0 mode monitor
+### ifconfig wlan0 up
+### iwconfig ----- check if card is in monitor mode under man
+
+
+
+
+
+
+
+
