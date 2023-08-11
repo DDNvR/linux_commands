@@ -10,6 +10,9 @@ rsync -avzh -e "ssh -J root@source1.com,root@source2.com" root@source.com:/pwd/ 
 **###pivot ssh**\
 ssh -t root@source.com ssh root@destination.com\
 \
+**###only show mac address and vendor with ipaddress**\
+nmap -sn 10.10.10.0/24 | awk '/Nmap scan report for/{printf $5;}/MAC Address:/{print " => "substr($0, index($0,$3)) }' | sort\
+\
 **###short update and upgrade**\
 apt update ; apt upgrade\
 \
