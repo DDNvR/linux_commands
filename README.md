@@ -93,7 +93,7 @@ printf '%s\n' "$MAC"
 # ba:aa:92:cf:38:2e
 # use mac/oui address lookup file in git
 ```
-### TCPDUMP
+# TCPDUMP
 Filtering ICMP echo reply echo request Packets with tcpdump command\
 --------------------------------------------------------\
 0 Echo Reply\
@@ -124,7 +124,7 @@ In the latest versions of tcpdump/libpcap, we can use the following command to c
 
 ### tcpdump -i eth0 ‘icmp6[icmp6type]=icmp6-echo’
 
-### WIFI HACKING
+# WIFI HACKING
 Commands used in wifi WPA2 hacking\
 --------------------------------------------------------\
 you will need a wifi card that can do packet injection and monitor mode... \
