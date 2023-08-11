@@ -103,7 +103,7 @@ Filtering ICMP echo reply echo request Packets with tcpdump command\
 8 Echo\
 11 Time Exceeded\
 --------------------------------------------------------\
-With the following command, we can filter ICMP echo-reply,\
+With the following command, we can filter ICMP echo-reply,
 
 ### tcpdump -i eth0 “icmp[0] == 0”
 
