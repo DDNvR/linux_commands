@@ -93,3 +93,36 @@ printf '%s\n' "$MAC"
 # ba:aa:92:cf:38:2e
 # use mac/oui address lookup file in git
 ```
+\
+\
+\
+# TCPDUMP
+Filtering ICMP echo reply echo request Packets with tcpdump command\
+--------------------------------------------------------\
+0 Echo Reply\
+3 Destination Unreachable\
+4 Source Quench\
+5 Redirect\
+8 Echo\
+11 Time Exceeded\
+\
+With the following command, we can filter ICMP echo-reply,\
+\
+# tcpdump -i eth0 “icmp[0] == 0”\
+\
+To filter ICMP echo-requests, we can use this tcpdump command.\
+\
+# tcpdump -i eth0 “icmp[0] == 8”\
+\
+How to use tcpdump to capture ICMPv6 packets\
+In IPv6, an IPv6 packet is 40 bytes long, and the first 8 bits of the ICMPv6 header specify its type. We can use this tcpdump command to filter all ICMPv6 packets.\
+\
+# tcpdump -i eth0 icmp6\
+\
+We can use this tcpdump command to filter ICMPv6 echo-requests.\
+\
+# tcpdump -i eth0 “icmp6 && ip6[40] == 128”\
+\
+In the latest versions of tcpdump/libpcap, we can use the following command to capture ICMPv6 echo packets.\
+\
+# tcpdump -i eth0 ‘icmp6[icmp6type]=icmp6-echo’
