@@ -161,7 +161,7 @@ check card supports packet injection\
 
 # WIFI HACKING GENERATE PASSWORD LIST
 Python3 Script to generate a password list of 8 char from terminal\
---------------------------------------------------------\
+--------------------------------------------------------
 ```
 #!/usr/bin/env python3
 
