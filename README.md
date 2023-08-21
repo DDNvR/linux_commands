@@ -160,13 +160,13 @@ check card supports packet injection\
 
 
 # WIFI HACKING GENERATE PASSWORD LIST
-Python3 Script to generate a password list of 8 char from terminal\
+### Python3 Script to generate a password list of 8 char from terminal
 --------------------------------------------------------
 ```
 #!/usr/bin/env python3
 
 #USAGE
-python3 this_code_filename.py > password_list.txt
+#python3 this_code_filename.py > password_list.txt
 
 #DESCTIPION
 #This is a wifi password list generator - default 8 chars of all characters for password
