@@ -160,7 +160,8 @@ check card supports packet injection\
 
 
 # WIFI HACKING GENERATE PASSWORD LIST
-### Python3 Script to generate a password list of 8 char from terminal
+### Python3 - multiple processes and parallel computations - 
+### Script to generate a password list of 8 char from terminal
 --------------------------------------------------------
 ```
 #!/usr/bin/env python3
@@ -170,6 +171,7 @@ check card supports packet injection\
 
 #DESCTIPION
 #This is a wifi password list generator - default 8 chars of all characters for password
+#using multiple processes and doing parallel computation
 
 #CONDITIONS
 #Both Uppercase and lowercase letters (e.g., a–z, A–Z)
@@ -177,21 +179,33 @@ check card supports packet injection\
 #FULLLIST array USED: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ with a space.
 
 
-#entire list of chars in wifi password list 
-alph_num_spec_arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','-','_','+','=','~','`','[',']','{','}','|','\\',':',';','\"','<','>',' ',',','.','?','/','\'']
+from multiprocessing import Pool
+import time
+import math
 
+if __name__ == "__main__":
 
-for a in range(0, len(alph_num_spec_arr)):   #1 char 
-  for b in range(0, len(alph_num_spec_arr)):  #2 char
-    for c in range(0, len(alph_num_spec_arr)):  #3 char
-      for d in range(0, len(alph_num_spec_arr)):  #4 char
-        for e in range(0, len(alph_num_spec_arr)):  #5 char
-          for f in range(0, len(alph_num_spec_arr)):  #6 char
-            for g in range(0, len(alph_num_spec_arr)):  #7 char
-              for h in range(0, len(alph_num_spec_arr)):  #8 char
+    # first way, using multiprocessing
+    start_time = time.perf_counter()
 
-                #print the output to terminal or file with > wordlist 
-                print(alph_num_spec_arr[a], alph_num_spec_arr[b], alph_num_spec_arr[c], alph_num_spec_arr[d], alph_num_spec_arr[e], alph_num_spec_arr[f], alph_num_spec_arr[g], alph_num_spec_arr[h], sep=''), #print all
+    #entire list of chars in wifi password list
+    alph_num_spec_arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','-','_','+','=','~','`','[',']','{','}','|','\\',':',';','\"','<','>',' ',',','.','?','/','\'']
+
+    #for loop to generate list of characters needed for password list
+    for a in range(0, len(alph_num_spec_arr)):   #1 char 
+      for b in range(0, len(alph_num_spec_arr)):  #2 char
+        for c in range(0, len(alph_num_spec_arr)):  #3 char
+          for d in range(0, len(alph_num_spec_arr)):  #4 char
+            for e in range(0, len(alph_num_spec_arr)):  #5 char
+              for f in range(0, len(alph_num_spec_arr)):  #6 char
+                for g in range(0, len(alph_num_spec_arr)):  #7 char
+                  for h in range(0, len(alph_num_spec_arr)):  #8 char
+
+                    #print the output to terminal or file with > wordlist 
+                    print(alph_num_spec_arr[a], alph_num_spec_arr[b], alph_num_spec_arr[c], alph_num_spec_arr[d], alph_num_spec_arr[e], alph_num_spec_arr[f], alph_num_spec_arr[g], alph_num_spec_arr[h], sep=''), #print all
+
+    finish_time = time.perf_counter()
+    print("Program finished in {} seconds - using multiprocessing".format(finish_time-start_time))
 ```
 
 
