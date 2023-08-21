@@ -183,10 +183,10 @@ from multiprocessing import Process
 import time
 import math
 
-# first way, using multiprocessing
+#set the time to start and see how long
 start_time = time.perf_counter()
 
-#function to start 
+#function to generate list 
 def gen_str():
     #entire list of chars in wifi password list
     alph_num_spec_arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','-','_','+','=','~','`','[',']','{','}','|','\\',':',';','\"','<','>',' ',',','.','?','/','\'']
@@ -212,7 +212,7 @@ if __name__ == '__main__':
     p1.join()
 
 
-#finish up 
+#finish up time schedule
 finish_time = time.perf_counter()
 print("Program finished in {} seconds - using multiprocessing".format(finish_time-start_time))
 #EOF
