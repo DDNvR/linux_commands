@@ -172,11 +172,9 @@ python3 this_code_filename.py > password_list.txt
 #This is a wifi password list generator - default 8 chars of all characters for password
 
 #CONDITIONS
-#Are not based on personal information (PII)
-#Not a word in any language, slang, dialect, or jargon
 #Both Uppercase and lowercase letters (e.g., a–z, A–Z)
 #Base numbers and non-alphanumeric symbols !@#$%^&*()~`_-=[]{}\|;':"<>?,./ 
-#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ with a space.
+#FULLLIST USED: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ with a space.
 
 
 #entire list of chars in wifi password list 
