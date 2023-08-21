@@ -173,8 +173,8 @@ check card supports packet injection\
 
 #CONDITIONS
 #Both Uppercase and lowercase letters (e.g., a–z, A–Z)
-#Base numbers and non-alphanumeric symbols !@#$%^&*()~`_-=[]{}\|;':"<>?,./ 
-#FULLLIST USED: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ with a space.
+#Base numbers and non-alphanumeric symbols 0123456789!@#$%^&*()~`_-=[]{}\|;':"<>?,./ 
+#FULLLIST array USED: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ with a space.
 
 
 #entire list of chars in wifi password list 
