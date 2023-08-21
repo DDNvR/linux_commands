@@ -178,19 +178,18 @@ check card supports packet injection\
 #Base numbers and non-alphanumeric symbols 0123456789!@#$%^&*()~`_-=[]{}\|;':"<>?,./ 
 #FULLLIST array USED: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ with a space.
 
-
-from multiprocessing import Pool
+import multiprocessing
+from multiprocessing import Process
 import time
 import math
 
-if __name__ == "__main__":
+# first way, using multiprocessing
+start_time = time.perf_counter()
 
-    # first way, using multiprocessing
-    start_time = time.perf_counter()
-
+#function to start 
+def gen_str():
     #entire list of chars in wifi password list
     alph_num_spec_arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','-','_','+','=','~','`','[',']','{','}','|','\\',':',';','\"','<','>',' ',',','.','?','/','\'']
-
     #for loop to generate list of characters needed for password list
     for a in range(0, len(alph_num_spec_arr)):   #1 char 
       for b in range(0, len(alph_num_spec_arr)):  #2 char
@@ -200,12 +199,24 @@ if __name__ == "__main__":
               for f in range(0, len(alph_num_spec_arr)):  #6 char
                 for g in range(0, len(alph_num_spec_arr)):  #7 char
                   for h in range(0, len(alph_num_spec_arr)):  #8 char
-
                     #print the output to terminal or file with > wordlist 
                     print(alph_num_spec_arr[a], alph_num_spec_arr[b], alph_num_spec_arr[c], alph_num_spec_arr[d], alph_num_spec_arr[e], alph_num_spec_arr[f], alph_num_spec_arr[g], alph_num_spec_arr[h], sep=''), #print all
 
-    finish_time = time.perf_counter()
-    print("Program finished in {} seconds - using multiprocessing".format(finish_time-start_time))
+
+#let start
+if __name__ == '__main__':
+    p1 = Process(target=gen_str)
+    #start 
+    p1.start()
+    #join processes 
+    p1.join()
+
+
+#finish up 
+finish_time = time.perf_counter()
+print("Program finished in {} seconds - using multiprocessing".format(finish_time-start_time))
+#EOF
+
 ```
 
 
