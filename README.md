@@ -162,7 +162,7 @@ check card supports packet injection\
 # WIFI HACKING GENERATE PASSWORD LIST
 Python3 Script to generate a password list of 8 char from terminal\
 --------------------------------------------------------\
-[CODE]
+```
 #!/usr/bin/env python3
 
 #USAGE
@@ -194,7 +194,7 @@ for a in range(0, len(alph_num_spec_arr)):   #1 char
 
                 #print the output to terminal or file with > wordlist 
                 print(alph_num_spec_arr[a], alph_num_spec_arr[b], alph_num_spec_arr[c], alph_num_spec_arr[d], alph_num_spec_arr[e], alph_num_spec_arr[f], alph_num_spec_arr[g], alph_num_spec_arr[h], sep=''), #print all
-[/code]
+```
 
 
 
