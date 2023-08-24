@@ -2,7 +2,8 @@
 command to help out for when you in the terminal\
 --------------------------------------------------------\
 **###normal rsync**\
-rsync -avzh root@source.com:/pwd/ destination/pwd/file\
+rsync -avzh root@source.com:/pwd/ destination/pwd/file   ###from server to server\
+rsync -avh thisfolder tootherfolder   ##works like diff will only copy what is not there\
 \
 **###jump via another host that can connect to destination**\
 rsync -avzh -e "ssh -J root@source1.com,root@source2.com" root@source.com:/pwd/ destination/pwd/file\
