@@ -146,7 +146,7 @@ replace certain linux commands with AWK\
 | awk '{gsub(/Next/, "linuxrules"); print}' test.sh | sed 's/Next/linux/' test.sh | |
 | awk 'END{print NR}' test.sh | wc -l test.sh | |
 | awk 'FNR <= 10' test.sh | head -n 10 test.sh | | 
-| awk 'a[$0]++' file | asdf | duplicates |
+| awk 'a[$0]++' file | asdf | duplicates add ! to remove:: !a[$0]++ |
 
 ## test.sh 
 this is a file used for testing the awk replace of linux commands 
