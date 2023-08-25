@@ -139,14 +139,14 @@ In the latest versions of tcpdump/libpcap, we can use the following command to c
 replace certain linux commands with AWK\
 --------------------------------------------------------\
 
-| awk_command  | linux_command | long way |
+| awk_command  | linux_command | long way/description |
 | ------------- | ------------- | ------------- |
 | awk 1 test.sh  | cat test.sh  | awk '{print $0}' test.sh |
 | awk '{IGNORECASE=1}/next/' test.sh | grep -i 'next' test.sh  | |
 | awk '{gsub(/Next/, "linuxrules"); print}' test.sh | sed 's/Next/linux/' test.sh | |
 | awk 'END{print NR}' test.sh | wc -l test.sh | |
 | awk 'FNR <= 10' test.sh | head -n 10 test.sh | | 
-|  |  |
+| awk 'a[$0]++' file | asdf | duplicates |
 
 ## test.sh 
 this is a file used for testing the awk replace of linux commands 
