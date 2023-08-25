@@ -146,7 +146,7 @@ replace certain linux commands with AWK\
 | awk '{gsub(/Next/, "linuxrules"); print}' test.sh | sed 's/Next/linux/' test.sh | |
 | awk 'END{print NR}' test.sh | wc -l test.sh | |
 | awk 'FNR <= 10' test.sh | head -n 10 test.sh | | 
-| awk 'a[$0]++' file | asdf | duplicates add ! to remove:: !a[$0]++ |
+| awk 'a[$0]++' test.sh | uniq -D test.sh | duplicates add ! to remove:: !a[$0]++ |
 
 ## test.sh 
 this is a file used for testing the awk replace of linux commands 
@@ -179,10 +179,18 @@ public class SomeClass {
         "You"
     };
 
+    ///this is a duplicate
     private static final String[] SOURCE = new String[] {
-        "1-345-Filesystem",
-        "2-321-Size",
-        "1-811-Type"
+        "Next",
+        "There",
+        "Is",
+        "A",
+        "Word",
+        "To",
+        "Avoid",
+        "Using",
+        "Without",
+        "You"
     };
 
 }
