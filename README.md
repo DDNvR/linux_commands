@@ -151,7 +151,7 @@ replace certain linux commands with AWK\
 ## test.sh 
 this is a file used for testing the awk replace of linux commands 
 ```
-public class SomeClass
+public class SomeClass {
 
     private static final String[] SOURCE = new String[] {
         "1-345-Filesystem",
@@ -167,7 +167,7 @@ public class SomeClass
     };
 
     private static final String[] IHEADER = new String[] {
-        "linux",
+        "Next",
         "There",
         "Is",
         "A",
@@ -177,6 +177,12 @@ public class SomeClass
         "Using",
         "Without",
         "You"
+    };
+
+    private static final String[] SOURCE = new String[] {
+        "1-345-Filesystem",
+        "2-321-Size",
+        "1-811-Type"
     };
 
 }
