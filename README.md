@@ -139,9 +139,9 @@ In the latest versions of tcpdump/libpcap, we can use the following command to c
 replace certain linux commands with AWK\
 --------------------------------------------------------\
 
-| awk_command  | linux_command | Description |
+| awk_command  | linux_command | long way |
 | ------------- | ------------- | ------------- |
-| awk '{print $0}' test.sh  | cat test.sh  |  |
+| awk 1 test.sh  | cat test.sh  | awk '{print $0}' test.sh |
 | awk '{IGNORECASE=1}/next/' test.sh | grep -i 'next' test.sh  | |
 | awk '{gsub(/Next/, "linuxrules"); print}' test.sh | sed 's/Next/linux/' test.sh | |
 | awk 'END{print NR}' test.sh | wc -l test.sh | |
