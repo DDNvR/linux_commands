@@ -148,7 +148,7 @@ replace certain linux commands with AWK\
 
 
 ## test.sh 
-this is a file used for testing the commands 
+this is a file used for testing the awk replace of linux commands 
 ```
 public class SomeClass
 
