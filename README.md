@@ -131,6 +131,65 @@ In the latest versions of tcpdump/libpcap, we can use the following command to c
 
 **##### tcpdump -i eth0 ‘icmp6[icmp6type]=icmp6-echo’
 
+
+
+
+
+# AWK Commands
+replace certain linux commands with AWK\
+--------------------------------------------------------\
+
+| awk_command  | linux_command | Description |
+| ------------- | ------------- | ------------- |
+| awk '{print $0}' test.sh  | cat test.sh  |  |
+| awk '{IGNORECASE=1}/next/' test.sh | grep -i 'next' test.sh  | |
+| awk '{gsub(/Next/, "linuxrules"); print}' test.sh | sed 's/Next/linux/' test.sh | |
+| awk 'END{print NR}' test.sh | wc -l test.sh | |
+
+
+## test.sh 
+this is a file used for testing the commands 
+```
+public class SomeClass
+
+    private static final String[] SOURCE = new String[] {
+        "1-345-Filesystem",
+        "2-321-Size",
+        "3-543-Used",
+        "4-082-Avail",
+        "5-543-Test",
+        "6-543-Ack",
+        "7-085-Perm",
+        "8-112-Use%",
+        "9-001-Mounted on",
+        "1-811-Type"
+    };
+
+    private static final String[] IHEADER = new String[] {
+        "linux",
+        "There",
+        "Is",
+        "A",
+        "Word",
+        "To",
+        "Avoid",
+        "Using",
+        "Without",
+        "You"
+    };
+
+}
+```
+
+
+
+
+
+
+
+
+
+
 # WIFI HACKING
 Commands used in wifi WPA2 hacking\
 --------------------------------------------------------\
