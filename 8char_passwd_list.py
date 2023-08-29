@@ -60,3 +60,8 @@ if __name__ == '__main__':
     p1.start()
     #join processes 
     p1.join()
+
+#finish up time schedule
+finish_time = time.perf_counter()
+print("Program finished in {} seconds - using multiprocessing".format(finish_time-start_time))
+#EOF
