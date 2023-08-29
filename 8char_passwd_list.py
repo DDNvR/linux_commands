@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 #USAGE
-#python3 this_code_filename.py > password_list.txt
+#python3 8char_passwd_list.py
 
 #DESCTIPION
-#This is a wifi password list generator - default 8 chars of all characters for password
+#This is a password list generator - mainly wifi password list - default 8 chars of all characters for password
 #using multiple processes and doing parallel computation
+#will generate its own files - of 1GB increments - easy for cat or awk to view
 
 #CONDITIONS
 #Both Uppercase and lowercase letters (e.g., a–z, A–Z)
