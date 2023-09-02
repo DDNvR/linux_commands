@@ -167,5 +167,19 @@ check card supports packet injection\
 **##### terminal 3: aircrack-ng packcapture.pcap -w passwords.txt
 
 
+# SNORT RULES AND RUN
+/etc/snort/rules/local.rules
 
+alert icmp any any -> 192.168.0.0/24 any (msg: "NMAP ping sweep Scan"; dsize:0;sid:10000004; rev: 1;)
 
+alert tcp any any -> 192.168.0.0/24 any (msg: "NMAP TCP Scan";sid:10000005; rev:2; )
+
+alert tcp any any -> 192.168.0.0/24 any (msg:"Nmap XMAS Tree Scan"; flags:FPU; sid:1000006; rev:1; )
+
+alert tcp any any -> 192.168.0.0/24 any (msg:"Nmap FIN Scan"; flags:F; sid:1000008; rev:1;)
+
+alert tcp any any -> 192.168.0.0/24 any (msg:"Nmap NULL Scan"; flags:0; sid:1000009; rev:1; )
+
+alert udp any any -> 192.168.0.0/24 any ( msg:"Nmap UDP Scan"; sid:1000010; rev:1; )
+
+**##### terminal 1: sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i wlp1s0f0
