@@ -1,0 +1,82 @@
+Decrypting WPA2 Encrypted Wi-Fi Traffic with Wireshark
+Post author 
+By Justin Wilson
+Post date 
+2021-03-31
+
+No Comments on Decrypting WPA2 Encrypted Wi-Fi Traffic with Wireshark
+TL;DR
+
+sudo ip link set wlan1 down
+sudo iw dev wlan1 set type monitor
+sudo ip link set wlan1 up
+sudo iw dev wlan1 set channel 6
+sudo tcpdump -i wlan1 -w %Y-%m-%d_%H.%M.%S.pcap -G 3600
+Capture some handshakes
+Open .pcap file in Wireshark
+Edit > Preferences > Protocols > IEEE 802.11 > Decryption Keys > Edit > New (+)
+Select key type: wpa-pwd
+Enter the key in the following format: password:ssid
+Click OK, then OK again. Wireshark will refresh the display with decrypted traffic. Set the display filter to “ip” to filter out all of the wireless noise.
+Intro
+
+Analyzing WPA2 encrypted wireless traffic is more difficult than I thought it would be. After several hours of struggling, I was able to do it. Here’s a condensed version of what I learned.
+
+There are several components that must all work together in order to be successful:
+
+You must have the WPA2 password and SSID
+You can only unencrypt traffic for devices for which you also captured a four-way handshake which occurred after the handshake took place
+Cool side note: This might even work across pcaps if the files are opened in the right order! For example, if you capture a handshake in cap1.pcap, and more traffic (but no handshake) in cap2.pcap, you can open cap1.pcap first, then File > Open cap2.pcap, and the handshake from cap1.pcap will be used to decrypt traffic in cap2.pcap.
+Note: In theory, this should work with WPA and WEP encrypted traffic as well, with only slight modification for WEP.
+
+1. Capturing Traffic in Linux
+
+First, let’s capture some traffic (note, you may need to change “wlan1” to “wlan0” or whatever your adapter shows up as. To see a list of all wireless adapters, run “iwconfig”.) You’ll need to know which channel the desired AP is running on.
+
+To discover this on 2.4Ghz networks, use
+
+sudo airodump-ng wlan1
+Or for 5Ghz networks, use
+
+sudo airodump-ng -b a wlan1
+(Note: not all traffic may be captured on 5Ghz with this method; I’m still working on this.)
+
+(Note 2: If you’re doing this in Kali Linux, be sure to update your distro before proceeding or airodump-ng will likely fail:)
+
+sudo apt update
+sudo apt upgrade
+Once you know which channel you need to use, run the following commands:
+
+sudo ip link set wlan1 down
+sudo iw dev wlan1 set type monitor
+sudo ip link set wlan1 up
+sudo iw dev wlan1 set channel 6 # (set the correct channel here)
+sudo tcpdump -i wlan1 -w %Y-%m-%d_%H.%M.%S.pcap -G 3600
+That last command will begin capturing traffic to a file with a filename of the current timestamp and will start a new .pcap file every 3600 seconds (1 hour). Capture as much traffic as you desire, and then press CTRL+C to stop the packet capture.
+
+2. Capturing a Handshake
+
+Be sure to capture a handshake for the device you wish to decrypt traffic for; the handshake will be required to decrypt the traffic for that device. If you can’t manually disconnect and reconnect a device, you can attempt to de-authenticate the device (or all devices) from the network in hopes that they will then reconnect.
+
+To deauth a device, you’ll need to know the BSSID of your AP. To find the BSSID, run:
+
+sudo airodump-ng wlan1
+Once your AP has appeared, press CTRL+C to cancel.
+
+Now, you can use the BSSID to deauth a device. To deauth a single device, run:
+
+sudo aireplay-ng --deauth 2 -a [bssid] -c [mac address of device] wlan1
+Or, to deauth ALL devices (you should probably be careful with this option), run:
+
+sudo aireplay-ng -0 2 -a [bssid] wlan1
+Now that you’ve caught some handshakes, we can start decrypting traffic. NOTE: Only traffic that was captured after the handshake can be decrypted.
+
+3. Decrypting and Analyzing Traffic in Wireshark
+
+To view the decrypted traffic in Wireshark:
+
+Open the pcap file in Wireshark
+Go to: Edit > Preferences > Protocols > IEEE 802.11 > Decryption Keys > Edit > New (+)
+Select key type: wpa-pwd
+Enter the key in the following format: password:ssid
+Click OK, then OK again. Wireshark will refresh the display with decrypted traffic. Set the display filter to “ip” to filter out all of the wireless noise.
